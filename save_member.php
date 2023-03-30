@@ -1,5 +1,8 @@
 <?php
 	//starting the session
+	require_once 'vendor/autoload.php';
+	use kornrunner\Ethereum\Address;
+
 	session_start();
 
 	//including the database connection
@@ -21,12 +24,29 @@
 		$stmt->bindParam(':lastname', $lastname);
 		
 		// Check if the execution of query is success
-		if($stmt->execute()){
-			//setting a 'success' session to save our insertion success message.
-			$_SESSION['success'] = "Successfully created an account";
 
-			//redirecting to the index.php 
-			header('location: index.php');
+		if($stmt->execute()){
+			$new_mem_id = $conn->lastInsertId();
+			$address = new Address();
+			// get address
+			$pub_address = $address->get();
+			$private_key = $address->getPrivateKey();
+			
+			$query_wallet = "INSERT INTO `wallet` (mem_id, address, private_key) VALUES(:mem_id, :address, :private_key)";
+			$stmt_wallet = $conn->prepare($query_wallet);
+			$stmt_wallet->bindParam(':mem_id', $new_mem_id);
+			$stmt_wallet->bindParam(':address', $pub_address);
+			$stmt_wallet->bindParam(':private_key', $private_key);
+
+			if($stmt_wallet->execute()) {
+				//setting a 'success' session to save our insertion success message.
+				$_SESSION['success'] = "Successfully created an account";
+
+				//redirecting to the index.php 
+				header('location: index.php');	
+				return;
+			}
+			
 		}
 
 	}

@@ -22,7 +22,8 @@ $chainList = array(
 // remember to set the right chain id
 // Find chain id here: https://chainlist.org/
 
-$chainId = '2000';
+//$chainId = '2000';
+$chainId = '5';
 
 
 //remember to set the right max balance
@@ -36,6 +37,7 @@ define("MAX_BALANCE",  5);
  * 
  * @var string
  */
+
 $faucetWalletPrivateKey = 'FFa044e0edd06fbc97195e052bFFc69d586ecc36c8510ff41fb389a6cFFF41FF';
 
 /**
@@ -43,7 +45,10 @@ $faucetWalletPrivateKey = 'FFa044e0edd06fbc97195e052bFFc69d586ecc36c8510ff41fb38
  * 
  * @var string
  */
-$faucetWalletAddress = '0x123FGGB409672dC3dC0ea158FdA8352eGG8BA9CC';
+//$faucetWalletAddress = '0x123FGGB409672dC3dC0ea158FdA8352eGG8BA9CC';
+
+
+$faucetWalletAddress = '0x6028cF17865Da40FBD1a65924D9A3a8EFc0aD2EE';
 
 /**
  * faucetAmount(ethers)
@@ -61,15 +66,21 @@ $timeout = 10;
 
 $web3 = new Web3(new HttpProvider(new HttpRequestManager($chainList[$chainId]['rpc'], $timeout)));
 
+
+
 $eth = $web3->eth;
+
+//var_dump($eth);
 
 /**
  * NETC tokenContractAddress on DogeChain Mainnet
  * 
  * @var string
  */
-$tokenContractAddress = '0x4631Ef412C736F5eBA2bF8115dEbaBB65B9c2d33';
+//$tokenContractAddress = '0x4631Ef412C736F5eBA2bF8115dEbaBB65B9c2d33';
+
+$tokenContractAddress = '0x07865c6E87B9F70255377e024ace6630C1Eaa37F';
 
 $erc20AbiJsonFile = file_get_contents($dir . '/ERC20ABI.json');
 $erc20AbiJson = json_decode($erc20AbiJsonFile);
-$decimals = 8;
+$decimals = 18;

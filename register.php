@@ -41,7 +41,7 @@ session_start();
 					//checking if the session 'success' is set. Success session is the message that the credetials are successfully saved.
 					
 				    if(isset($_SESSION["username"])){
-					echo $_SESSION["username"];
+						echo $_SESSION["username"];
 					}
 					
 					if(ISSET($_SESSION['success'])){

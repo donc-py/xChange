@@ -37,7 +37,7 @@ async function fetchAccountData() {
   // Subscribe to chainId change
   provider.on("chainChanged", (chainId) => {
     console.log(chainId);
-    // ethChainChanged();
+    ethChainChanged();
   });
 
   // Subscribe to session disconnection

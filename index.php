@@ -1,5 +1,5 @@
 <?php
-//	session_start();
+	//session_start();
 	require_once 'login_query.php';
 ?>
 <!DOCTYPE html>
@@ -49,10 +49,29 @@
 		<h3>PHP - Login And Registration</h3>
 		<hr/>
 		<?php
-			echo "session val:: Username: ".$_SESSION['username'].".</br>";
-			echo "session val:: Password: ".$_SESSION['password']."</br>";
+			echo "Username: ".(isset($_SESSION['username'])?$_SESSION['username']:'').".</br>";
+			echo "Balance: ".(isset($_SESSION['balance'])?$_SESSION['balance']:'')."</br>";
 		?>
+        <div class="container">
+      <!-- Links -->
+      <select class="form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option value="1">GOERLI Chain</option>
+      </select>
+      <span class="form-select-lg mb-3 text-center" aria-label=".form-select-lg example">
+        <input type="text" class="form-control container-fluid" id="reqAdd" placeholder="Enter your ERC-20 compatible address (e.g.: 0x…)" aria-describedby="basic-addon1" value="" style="min-width: 350px;text-align: center;"><br>
+        [Deposit Address (Note: Only NETC or DOGE coin in DOGECHAIN)]
+      </span>
+
+      <select id="select-coin" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option id="netcv" value="1">USDC: 0</option>
+        <option id="dogev" value="2">ETH: 0</option>
+      </select>
+
+      <!-- <button class="btn btn-primary form-control mb-3">Withdraw</button> -->
+    </div>
 		<a href="login.php">Logout</a>
+        <a onclick="connectWallet()" class="btn login-btn ml-50">Connect Wallet</a>
+        <a onclick="createWallet()" class="btn login-btn ml-50">Create Wallet</a>
 		<h1>Welcome <?php $username=""; echo $username; ?> !</h1>
 	</div>
       
@@ -74,7 +93,7 @@ include_once("render.php");
         
         //GET PAGE CALLBACK
         $page="";
-        $page=$_GET["page"];
+        $page=isset($_GET["page"])?$_GET["page"]:'';
 
         // CONTACT
         if  ( $page == "contact"){
@@ -118,11 +137,56 @@ include ("faucet2.php");
       ?>
 
     
-<progress max="100" value="80"></progress>
 <?php include ("footer.php"); ?>
 
   </div> <!--wrapper-->
-  
+  <script>
+    async function requestBalance() {
+      const chainId = await ethereum.request({ method: 'eth_chainId' });
+      console.log(chainId);
+        address = document.getElementById("reqAdd").value;
+        axios.post(
+          "http://3.139.87.137/xchange/xChange/"+"faucet.php",
+          {
+            reqAddress: address,
+            request: 'requestBalance'           
+          }
+        )
+        .then(function(response) { 
+          if(response.status == 200) {
+            if(response.data.status === "error") {
+              alert(response.data.msg);
+              
+            }
+            else if(response.data.status === "success") {
+              alert(response.data.msg);
+              sl = '<option id="netcv" value="1">USDC: '+ response.data.balanceneo +'</option><option id="dogev" value="2">ETH: '+ response.data.balance + '</option>';
+              document.getElementById("select-coin").innerHTML = sl;
+            }
+            else {
+              alert("Network Error! please try it again later");
+              alert(response);
+            }
+
+          }
+          else {
+            alert("Network Error! please try it again later");
+            alert(response);
+          }
+        })
+        .catch(function(error) {
+          alert("Network Error! please try it again later");
+          console.error(error);
+        });
+      }
+    //let lastname = sessionStorage.getItem("deposit_address");
+    console.log(sessionStorage.getItem("deposit_address"));
+
+    document.getElementById("reqAdd").value = sessionStorage.getItem("deposit_address");
+
+    requestBalance();
+
+  </script>
 
 </body>
 </html>

@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '18bb3f505cab1c6eb5f55a6dad994455fba6bba0',
         'name' => 'web3p/faucet-eth',
         'dev' => true,
     ),
     'versions' => array(
+        'fgrosse/phpasn1' => array(
+            'pretty_version' => 'v2.4.0',
+            'version' => '2.4.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fgrosse/phpasn1',
+            'aliases' => array(),
+            'reference' => 'eef488991d53e58e60c9554b09b1201ca5ba9296',
+            'dev_requirement' => false,
+        ),
         'guzzlehttp/guzzle' => array(
             'pretty_version' => '7.5.0',
             'version' => '7.5.0.0',
@@ -37,6 +46,15 @@
             'reference' => '69568e4293f4fa993f3b0e51c9723e1e17c41379',
             'dev_requirement' => false,
         ),
+        'kornrunner/ethereum-address' => array(
+            'pretty_version' => 'v0.3.0',
+            'version' => '0.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kornrunner/ethereum-address',
+            'aliases' => array(),
+            'reference' => '89197ed3992d74f0de76702cd82ec32d1264dad9',
+            'dev_requirement' => false,
+        ),
         'kornrunner/keccak' => array(
             'pretty_version' => '1.1.0',
             'version' => '1.1.0.0',
@@ -44,6 +62,15 @@
             'install_path' => __DIR__ . '/../kornrunner/keccak',
             'aliases' => array(),
             'reference' => '433749d28e117fb97baf9f2631b92b5d9ab3c890',
+            'dev_requirement' => false,
+        ),
+        'mdanter/ecc' => array(
+            'pretty_version' => 'v1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mdanter/ecc',
+            'aliases' => array(),
+            'reference' => '34e2eec096bf3dcda814e8f66dd91ae87a2db7cd',
             'dev_requirement' => false,
         ),
         'phpseclib/phpseclib' => array(
@@ -173,12 +200,12 @@
             'dev_requirement' => false,
         ),
         'web3p/faucet-eth' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '18bb3f505cab1c6eb5f55a6dad994455fba6bba0',
             'dev_requirement' => false,
         ),
         'web3p/rlp' => array(

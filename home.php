@@ -13,8 +13,8 @@ session_start();
 		<h3>PHP - Login And Registration</h3>
 		<hr/>
 		<?php
-			echo "session val:: Username: ".$_SESSION['username'].".</br>";
-			echo "session val:: Password: ".$_SESSION['password']."</br>";
+			echo " Username: ".$_SESSION['username'].".</br>";
+			echo " Balance: ".$_SESSION['balance'].".</br>";
 		?>
 		<a href="login.php">Logout</a>
 		<h1>Welcome User!</h1>
