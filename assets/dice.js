@@ -12,7 +12,11 @@ function start() {
 
   axios
   .post(
+<<<<<<< HEAD
     "http://3.139.87.137/xchange/xChange/dice_result.php"
+=======
+    "/dice_result.php"
+>>>>>>> 47fafafb7fa545cc9171d1bcc4914e70045e410a
   )
   .then(function(response) {
     if (response.data.status == "success") { 

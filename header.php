@@ -4,11 +4,18 @@
 		<li id="AB" style="background:#616C7A ; width:12% "> <a href="index.php">Menu</a>	
   		 <ul>
 			<li> <a href="./index.php">Home</a>  </li>
+<<<<<<< HEAD
 			<li> <a href="./dice.php">Dice</a>  </li>
 			<li> <a href="./marketplace.php">MarketPlace</a>  </li>
 			<li> <a href="./vote.php">CryptoVote</a>  </li>
 			<li> <a href="./dice.php">Doge Dex</a>  </li>
 			<li> <a href="?page=coins">Investments</a>  </li>
+=======
+			<li> <a href="?page=coins">Investments</a>  </li>
+			<li> <a href="?page=pot">cannabis</a>  </li>
+			<li> <a href="?page=chat">chat</a>  </li>
+			<li> <a href="?page=downloads">downloads</a>  </li>
+>>>>>>> 47fafafb7fa545cc9171d1bcc4914e70045e410a
 		 </ul>
 		</li>
 		<li id="CF" style="background:#5C6776 ; width:12% ">  <a href="?page=licence">About</a>  		
@@ -23,9 +30,12 @@
 	  </ul>
 	<!-- </div> menu-->
 
+<<<<<<< HEAD
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <p style="color:#F78989">use wallet generated file to upload transaction
         <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Upload" name="submit">
         </p>
     </form>
+=======
+>>>>>>> 47fafafb7fa545cc9171d1bcc4914e70045e410a

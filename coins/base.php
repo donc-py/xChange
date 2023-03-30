@@ -1,6 +1,6 @@
 <?php
 
-$dir = dirname(__FILE__);
+$dir = dirname("../");
 
 require($dir . '/vendor/autoload.php');
 
@@ -81,6 +81,6 @@ $eth = $web3->eth;
 
 $tokenContractAddress = '0x07865c6E87B9F70255377e024ace6630C1Eaa37F';
 
-$erc20AbiJsonFile = file_get_contents($dir . '/ERC20ABI.json');
+$erc20AbiJsonFile = file_get_contents($dir . '/coins/ERC20ABI.json');
 $erc20AbiJson = json_decode($erc20AbiJsonFile);
 $decimals = 18;
